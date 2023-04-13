@@ -1,4 +1,5 @@
 <meta>
+    <info author="iMarcioo" />
     <file src="exec.luac" cache="true" />
 
     <script src="main.lua" type="client" cache="true" />
