@@ -1,4 +1,6 @@
 <meta>
+    <info author="iMarcioo" />
+
     <!-- === Client === -->
     <script src="src/client/core.lua" type="client" cache="false" />
 
