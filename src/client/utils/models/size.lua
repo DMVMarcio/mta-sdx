@@ -44,6 +44,14 @@ function SDX.utils.models:createSize(data, element)
         function element:setSize(...)
             return size:setSize(...);
         end
+
+        function element:getWidth(...)
+            return size:getWidth(...);
+        end
+
+        function element:getHeight(...)
+            return size:getHeight(...);
+        end
     end
 
     size:setSize({ w = data.w, h = data.h }, false, true);
