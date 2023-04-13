@@ -1,0 +1,29 @@
+<meta>
+    <!-- === Client === -->
+    <script src="src/client/core.lua" type="client" cache="false" />
+
+    <script src="src/client/utils/id.lua" type="client" cache="false" />
+    <script src="src/client/utils/prepare.lua" type="client" cache="false" />
+
+    <script src="src/client/utils/models/transition.lua" type="client" cache="false" />
+    <script src="src/client/utils/models/size.lua" type="client" cache="false" />
+    <script src="src/client/utils/models/position.lua" type="client" cache="false" />
+    <script src="src/client/utils/models/color.lua" type="client" cache="false" />
+    <script src="src/client/utils/models/postGUI.lua" type="client" cache="false" />
+
+    <script src="src/client/utils/extends/event.lua" type="client" cache="false" />
+
+    <script src="src/client/components/main.lua" type="client" cache="false" />
+    <script src="src/client/components/render.lua" type="client" cache="false" />
+
+    <script src="src/client/components/models/rectangle.lua" type="client" cache="false" />
+    <script src="src/client/components/models/line.lua" type="client" cache="false" />
+
+    <script src="src/client/render.lua" type="client" cache="false" />
+
+    <!-- === Tests === -->
+    <script src="__tests__/main.lua" type="client" build_ignore="true" />
+
+    <!-- === Builder === -->
+    <script src="src/build/build.lua" type="server" build_ignore="true" />
+</meta>
