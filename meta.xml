@@ -1,6 +1,9 @@
 <meta>
     <info author="iMarcioo" />
 
+    <!-- === Shared === -->
+    <script src="src/client/lib/class.lua" type="shared" cache="false" />
+
     <!-- === Client === -->
     <script src="src/client/core.lua" type="client" cache="false" />
 
@@ -22,7 +25,7 @@
     <script src="src/client/components/models/line.lua" type="client" cache="false" />
 
     <!-- === Tests === -->
-    <script src="__tests__/main.lua" type="client" build_ignore="true" />
+    <script src="__tests__/main.lua" type="shared" build_ignore="true" cache='false' />
 
     <!-- === Builder === -->
     <script src="src/build/build.lua" type="server" build_ignore="true" />
