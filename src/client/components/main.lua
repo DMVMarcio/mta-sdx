@@ -1,3 +1,8 @@
+local imports = {
+    type = type,
+    pairs = pairs
+}
+
 function SDX.components:get(component_id)
     return SDX.components.list[component_id] or false;
 end
@@ -38,7 +43,7 @@ function SDX.components:create(data, component_type, parent)
     function component:setParent(parent_component)
         if(
             (not parent_component)
-            or (type(parent_component.getID) ~= 'function')
+            or (imports.type(parent_component.getID) ~= 'function')
             or (not SDX.components:get(parent_component:getID()))
         ) then
             private.parent = nil;
@@ -63,7 +68,7 @@ function SDX.components:create(data, component_type, parent)
     function component:getChilds(child_callback)
         local childList = {};
 
-        for child_id in pairs(private.childs) do
+        for child_id in imports.pairs(private.childs) do
             local child = self:getChild(child_id);
 
             if(child) then
@@ -103,7 +108,7 @@ function SDX.components:create(data, component_type, parent)
         return false;
     end
 
-    function component:draw(data, force)
+    function component:draw(data)
         self:drawSingle(data);
 
         self:getChilds(function(child)

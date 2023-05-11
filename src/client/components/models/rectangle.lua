@@ -1,3 +1,7 @@
+local imports = {
+    dxDrawRectangle = dxDrawRectangle
+};
+
 function SDX.components:createRectangle(data, parent)
     local component, private = SDX.components:create(data, 'rectangle', parent);
 
@@ -15,7 +19,7 @@ function SDX.components:createRectangle(data, parent)
         local size = self:getSize();
         local color = self:getColor();
 
-        dxDrawRectangle(
+        imports.dxDrawRectangle(
             absolutePos.x, absolutePos.y,
             size.w, size.h,
             color,

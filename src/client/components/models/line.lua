@@ -1,3 +1,7 @@
+local imports = {
+    dxDrawLine = dxDrawLine
+};
+
 function SDX.components:createLine(data, parent)
     local component, private = SDX.components:create(data, 'line', parent);
 
@@ -51,7 +55,7 @@ function SDX.components:createLine(data, parent)
         local size = self:getSize();
         local color = self:getColor();
 
-        dxDrawLine(
+        imports.dxDrawLine(
             startAbsolutePos.x, startAbsolutePos.y,
             finishAbsolutePos.x, finishAbsolutePos.y,
             color,

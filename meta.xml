@@ -21,8 +21,6 @@
     <script src="src/client/components/models/rectangle.lua" type="client" cache="false" />
     <script src="src/client/components/models/line.lua" type="client" cache="false" />
 
-    <script src="src/client/render.lua" type="client" cache="false" />
-
     <!-- === Tests === -->
     <script src="__tests__/main.lua" type="client" build_ignore="true" />
 

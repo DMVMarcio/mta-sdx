@@ -1,3 +1,7 @@
+local imports = {
+    type = type
+};
+
 function SDX.utils.models:createPosition(data, element, extends)
     local position = { };
     local transition = SDX.utils.models:createTransition({ });
@@ -12,7 +16,7 @@ function SDX.utils.models:createPosition(data, element, extends)
             local parent = element:getParent();
             local parentPosition = parent
                 and (
-                    type(parent.getPositionAbsolute) == 'function'
+                    imports.type(parent.getPositionAbsolute) == 'function'
                     and parent:getPositionAbsolute(true)
                     or { x = 0, y = 0, z = 0 }
                 ) or { x = 0, y = 0, z = 0 };
