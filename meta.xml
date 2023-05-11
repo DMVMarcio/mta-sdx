@@ -1,6 +1,10 @@
 <meta>
     <info author="iMarcioo" />
 
+
+    <!-- === Shared === -->
+    <script src="src/client/lib/class.lua" type="shared" cache="false" />
+
     <!-- === Client === -->
     <script src="src/client/core.lua" type="client" cache="false" />
 
