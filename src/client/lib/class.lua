@@ -16,8 +16,29 @@ function New(target, ...)
     return instance
 end
 
-function ClassExtends(target, base)
-    -- TODO: Create a static classe and add methods to index into target class.
+function ClassExtends(target, bases)
+    target.super = base
+    local staticMetatable = setmetatable({__index = base}, base)
+    setmetatable(target, staticMetatable)
+    local baseMetatable = getmetatable(base)
+    if baseMetatable then
+        if type(baseMetatable.__index) == "function" then
+            staticMetatable.__index = baseMetatable.__index
+        end
+        if type(baseMetatable.__newindex) == "function" then
+            staticMetatable.__newindex = baseMetatable.__newindex
+        end
+    end
+    setmetatable(target, base)
+    if type(base.__index) == "function" then
+        target.__index = base.__index
+    end
+    if type(base.__newindex) == "function" then
+        target.__newindex = base.__newindex
+    end
+    if type(base.__tostring) == "function" then
+        target.__tostring = base.__tostring
+    end
 end
 
 -- get all classes created
