@@ -28,7 +28,7 @@ function SDX.assets.models.base:removeDependent(dependent_instance)
     return true;
 end
 
-function SDX.assets.models.base:onBeforeLoad()
+function SDX.assets.models.base:onBeforeCreate()
     return true;
 end
 

@@ -34,10 +34,17 @@ function SDX.components:create(component_data, parent_instance)
     });
 
     if(componentInstance.type ~= 'base') then
-        SDX.components.models.base.onBeforeLoad(componentInstance, component_data);
+        SDX.components.models.base.onBeforeCreate(componentInstance, component_data);
     end
 
-    componentInstance:onBeforeLoad(component_data);
+    local beforeCreateResponse = componentInstance:onBeforeCreate(component_data);
+
+    if(not beforeCreateResponse) then
+        componentInstance:destroy();
+
+        return false;
+    end
+
     componentInstance:setParent(parent_instance);
 
     self:register(componentInstance);

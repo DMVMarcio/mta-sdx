@@ -1,3 +1,8 @@
+local imports = {
+    bitExtract = bitExtract,
+    getColorFromString = getColorFromString
+};
+
 function SDX.utils:prepareType(value, value_type, default_value)
     return type(value) == value_type and value or default_value;
 end
@@ -19,13 +24,13 @@ function SDX.utils:prepareColor(color_data, default_color)
 
     if(type(color_data) == 'number') then
 		return {
-            bitExtract(color_data, 16, 8),
-            bitExtract(color_data, 8, 8),
-            bitExtract(color_data, 0, 8),
-            bitExtract(color_data, 24, 8)
+            imports.bitExtract(color_data, 16, 8),
+            imports.bitExtract(color_data, 8, 8),
+            imports.bitExtract(color_data, 0, 8),
+            imports.bitExtract(color_data, 24, 8)
         };
     elseif(type(color_data) == 'string') then
-        local color = { getColorFromString(color_data) };
+        local color = { imports.getColorFromString(color_data) };
         color = color[1] ~= false and {
             color[1], color[2], color[3], color[4]
         } or defaultColor;

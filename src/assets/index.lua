@@ -23,19 +23,25 @@ function SDX.assets:create(asset_data)
     asset_data = SDX.utils:prepareType(asset_data, 'table', { });
 
     local assetInstance = {
-        type = SDX.asset.models[asset_data.type] and asset_data.type or 'base',
+        type = SDX.assets.models[asset_data.type] and asset_data.type or 'base',
         dependents = { }
     }
 
     assetInstance = setmetatable(assetInstance, {
-        __index = SDX.asset.models[assetInstance.type]
+        __index = SDX.assets.models[assetInstance.type]
     });
 
     if(assetInstance.type ~= 'base') then
-        SDX.asset.models.base.onBeforeLoad(assetInstance, asset_data);
+        SDX.assets.models.base.onBeforeCreate(assetInstance, asset_data);
     end
 
-    assetInstance:onBeforeLoad(asset_data);
+    local beforeCreateResponse = assetInstance:onBeforeCreate(asset_data);
+
+    if(not beforeCreateResponse) then
+        componentInstance:destroy();
+
+        return false;
+    end
 
     self:register(assetInstance);
 

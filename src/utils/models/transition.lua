@@ -1,3 +1,9 @@
+local imports = {
+    getTickCount = getTickCount,
+
+    interpolateBetween = interpolateBetween
+};
+
 local validAnimations = {
     ['Linear'] = true, ['InQuad'] = true,
     ['OutQuad'] = true, ['InOutQuad'] = true,
@@ -170,18 +176,18 @@ function SDX.utils.models.transition:getStartTick()
 end
 
 function SDX.utils.models.transition:setStartTick(new_tick)
-    self.start_tick = SDX.utils:prepareType(new_tick, 'number', getTickCount());
+    self.start_tick = SDX.utils:prepareType(new_tick, 'number', imports.getTickCount());
 
     return true;
 end
 
 function SDX.utils.models.transition:refresh()
-    self.start_tick = getTickCount();
+    self.start_tick = imports.getTickCount();
     self:setRunning(true);
 end
 
 function SDX.utils.models.transition:getElapsed()
-    return getTickCount() - self:getStartTick();
+    return imports.getTickCount() - self:getStartTick();
 end
 
 function SDX.utils.models.transition:getProgress()
@@ -200,7 +206,7 @@ function SDX.utils.models.transition:tick()
         local to = self:getTo();
 
         local interpolateRes = {
-            interpolateBetween(
+            imports.interpolateBetween(
                 from[1],
                 from[2],
                 from[3],

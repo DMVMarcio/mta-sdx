@@ -63,7 +63,7 @@ function SDX.components.models.base:draw()
     end
 end
 
-function SDX.components.models.base:onBeforeLoad()
+function SDX.components.models.base:onBeforeCreate()
     self.instances.event = SDX.utils.models.event:create();
 
     return true;

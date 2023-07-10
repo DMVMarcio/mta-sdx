@@ -1,5 +1,5 @@
 <meta>
-    <info author="DMVMarcio" version="0.0.1" />
+    <info author="iMarcioo" version="0.0.1" />
 
     <script src="src/core.lua" type="client" />
 
@@ -23,6 +23,7 @@
     <script src="src/assets/models/index.lua" type="client" />
 
     <script src="src/assets/models/texture.lua" type="client" />
+    <script src="src/assets/models/image.lua" type="client" />
 
     <script src="src/assets/index.lua" type="client" />
 
